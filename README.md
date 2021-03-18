@@ -35,5 +35,5 @@ response_json_file = open(...)
 checker.check(response_json_file) # prints your score and stats
 
 # Please note that open() doesn't create folders.
-# You need to have them in your filesystem already
+# You need to have them in your filesystem already.
 ```
