@@ -50,7 +50,7 @@ So, writing scrapers takes a while and they can break easily if NTA decides to c
 If you find that this broke in the future, please open an issue describing what went wrong, the intended output, and attach files so that I can write a new scraper.
 
 Currently the following scrapers are supported:
-- `mains_2021` --> for JEE Mains 2021. Tested for February attempt.
+- `mains_2021` --> for JEE Mains 2021. Tested for February, March attempt.
 
 ### Implementing New Scrapers
 

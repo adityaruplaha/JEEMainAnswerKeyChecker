@@ -17,8 +17,6 @@ with open("files/provisional_answer.json", 'w') as f:
     s.dump_to(f)
     f.close()
 
-
-
 with open("files/provisional_answer.json") as f:
     cp = Checker(f)
 with open("files/final_answer.json") as f:
@@ -26,7 +24,3 @@ with open("files/final_answer.json") as f:
 with open("files/response.json") as f:
     cp.check(f)
     cp.display_default()
-    print("--------------------------")
-    f.seek(0)
-    #cf.check(f)
-    #cf.display_default()
