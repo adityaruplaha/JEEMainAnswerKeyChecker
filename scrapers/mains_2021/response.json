@@ -5,5 +5,5 @@
     "test_date": "Test Date\\s+(\\d{02}\\/\\d{02}\\/\\d{04})",
     "test_time": "Test Time\\s+([\\w\\d\\: \\-]+)",
     "mcq" : "Question Type\\s+:\\s+MCQ\\n\\s+Question ID\\s+:\\s+(?P<qid>\\d+)\\n\\s+Option 1 ID\\s+:\\s+(?P<o1id>\\d+)\\n\\s+Option 2 ID\\s+:\\s+(?P<o2id>\\d+)\\n\\s+Option 3 ID\\s+:\\s+(?P<o3id>\\d+)\\n\\s+Option 4 ID\\s+:\\s+(?P<o4id>\\d+)\\n\\s+Status\\s+:\\s+[\\w\\s]+\\n\\s+Chosen Option\\s+:\\s+(?P<chosen>[-\\d]+)\\n",
-    "numerical" : "Given\\s+(?P<given>[-\\d]+)\\n\\s+Answer :\\s+\\s+Question Type\\s+:\\s+SA\\n\\s+Question ID\\s+:\\s+(?P<qid>\\d+)"
+    "numerical" : "Given\\s+(?P<given>[\\d.-]+)\\n\\s+Answer :\\s+\\s+Question Type\\s+:\\s+SA\\n\\s+Question ID\\s+:\\s+(?P<qid>\\d+)"
 }

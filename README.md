@@ -9,7 +9,7 @@ This software is not affiliated to or endorsed by [NTA](https://www.nta.ac.in).
 
 JEE Main answer keys are given in a format which is extremely difficult and tedious to check by hand (Ctrl+F helps somewhat but its still hard). So I decided to automate this process.
 
-This code correlates everything for you and emits the score with some barebones statistics. It can also be extended to list all mismatches for a person to check. ~~Should be trivial though, might add it later.~~ Working on it.
+This code correlates everything for you and emits the score with some barebones statistics. It also lists all mismatches.
 ## Usage
 
 To use this project, you need some basic Python and [Okular](https://okular.kde.org/) (might work if other PDF readers have the same functionality, but untested).
