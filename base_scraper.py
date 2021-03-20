@@ -34,6 +34,5 @@ class BaseScraper(abc.ABC):
         scraper_file.close()
         return dict([(k, re.compile(i, re.M)) for (k, i) in data])
 
-    @abc.abstractmethod
     def dump_to(self, file):
         json.dump(self.data, file)
