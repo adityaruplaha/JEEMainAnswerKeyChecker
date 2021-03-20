@@ -18,11 +18,11 @@ I might add a CLI later.
 
 1. Open your PDF (recorded response, final answer key PDF, or a Ctrl+P of the provisional answer key page) using Okular.
 2. Export the PDF as text (File > Export As > Plain Text/Text File).
-3. Use the file as demonstrated in main.py.
+3. Use the file as demonstrated in main.py. A short example is shown below.
 
 ```python
 # Scraper
-s = Scraper() # choose what you need
+s = Scraper(scraper='mains_2021') # choose what you need
 file = open(...) # or any file-like object
 s.parse(file)
 out_json_file = open(..., 'w') # or any file-like object

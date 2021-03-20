@@ -3,38 +3,31 @@ from answer_scraper import ProvisionalKeyScraper
 from answer_scraper import FinalKeyScraper
 from checker import Checker
 
-s = ResponseScraper()
-f = open("files/Recorded Response.txt")
-s.parse(f)
-f.close()
-f = open("files/response.json", 'w')
-s.dump(f)
-f.close()
+s = ResponseScraper(scraper='mains_2021')
+with open("files/Recorded Response.txt") as f:
+    s.parse(f)
+with open("files/response.json", 'w') as f:
+    s.dump_to(f)
 
-s = ProvisionalKeyScraper()
-f = open("files/Provisional Answer Key.txt")
-s.parse(f)
-f.close()
-f = open("files/provisional_answer.json", 'w')
-s.dump(f)
-f.close()
+s = ProvisionalKeyScraper(scraper='mains_2021')
+with open("files/Provisional Answer Key.txt") as f:
+    s.parse(f)
+with open("files/provisional_answer.json", 'w') as f:
+    s.dump_to(f)
 
-s = FinalKeyScraper()
-f = open("files/Final Answer Key.txt")
-s.parse(f)
-f.close()
-f = open("files/final_answer.json", 'w')
-s.dump(f)
-f.close()
 
-f = open("files/provisional_answer.json")
-cp = Checker(f)
-f.close()
-f = open("files/final_answer.json")
-cf = Checker(f)
-f.close()
-f = open("files/response.json")
-cp.check(f)
-f.seek(0)
-cf.check(f)
-f.close()
+s = FinalKeyScraper(scraper='mains_2021')
+with open("files/Final Answer Key.txt") as f:
+    s.parse(f)
+with open("files/final_answer.json", 'w') as f:
+    s.dump_to(f)
+
+
+with open("files/provisional_answer.json") as f:
+    cp = Checker(f)
+with open("files/final_answer.json") as f:
+    cf = Checker(f)
+with open("files/response.json") as f:
+    cp.check(f)
+    f.seek(0)
+    cf.check(f)
