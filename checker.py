@@ -24,6 +24,8 @@ class Checker:
         dropped_num = 0
         for question in data["questions"]["mcq"]:
             id = question["question_id"]
+            if id not in self.answers.keys():
+                continue
             if self.answers[id] is None:
                 dropped_mcq += 1
                 continue
@@ -41,6 +43,8 @@ class Checker:
                     incorrect_mcq += 1
         for question in data["questions"]["numerical"]:
             id = question["question_id"]
+            if id not in self.answers.keys():
+                continue
             if self.answers[id] is None:
                 dropped_num += 1
                 continue
