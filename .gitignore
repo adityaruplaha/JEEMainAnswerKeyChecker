@@ -130,4 +130,4 @@ dmypy.json
 
 
 # Personal files
-files/*
+files*

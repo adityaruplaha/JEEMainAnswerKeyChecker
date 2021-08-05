@@ -3,7 +3,7 @@
 An automated script to scrape and check JEE Main 2021 answer keys I made over the weekend. Runs fully offline.
 This is still very crude and can be improved and extended upon in many ways. Contributions welcome. :)
 
-This software is not affiliated to or endorsed by [NTA](https://www.nta.ac.in). 
+This software is not affiliated to or endorsed by [NTA](https://www.nta.ac.in).
 
 ## Why?
 
@@ -50,7 +50,7 @@ So, writing scrapers takes a while and they can break easily if NTA decides to c
 If you find that this broke in the future, please open an issue describing what went wrong, the intended output, and attach files so that I can write a new scraper.
 
 Currently the following scrapers are supported:
-- `mains_2021` --> for JEE Mains 2021. Tested for February, March attempt.
+- `mains_2021` --> for JEE Mains 2021. Tested for February, March, April attempt.
 
 ### Implementing New Scrapers
 
