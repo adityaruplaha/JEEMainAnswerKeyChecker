@@ -10,7 +10,7 @@ with open("files/response.json", 'w') as f:
     s.dump_to(f)
     f.close()
 
-''' ####
+''' ###
 s = ProvisionalKeyScraper(scraper='mains_2021')
 with open("files/Provisional Answer Key.txt") as f:
     s.parse(f)
@@ -27,19 +27,14 @@ with open("files/final_answer.json", 'w') as f:
     f.close()
 '''
 
+
 with open("files/provisional_answer.json") as f:
-    cp = Checker(f)
+    c = Checker(f)
 '''
 with open("files/final_answer.json") as f:
-    cf = Checker(f)
+    c = Checker(f)
+###
 
 with open("files/response.json") as f:
-    cf.check(f)
-    cf.display_default()
-    '''
-    f.seek(0)
-    print()
-    print()
-    cf.check(f)
-    cf.display_default()
-    '''
+    c.check(f)
+    c.display_default()
