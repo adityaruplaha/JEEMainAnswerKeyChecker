@@ -74,7 +74,7 @@ class Checker:
                     incorrect_num += 1
 
         # Marking scheme hardcoded here.
-        total = 4*(correct_mcq + correct_num + dropped_mcq + dropped_num) - incorrect_mcq
+        total = 4*(correct_mcq + correct_num + dropped_mcq + dropped_num) - (incorrect_mcq + incorrect_num)
         fm = 300
 
         self.data["score"] = {

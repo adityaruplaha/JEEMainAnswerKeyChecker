@@ -51,7 +51,7 @@ If you find that this broke in the future, please open an issue describing what 
 
 Currently the following scrapers are supported:
 - `mains_2021` --> for JEE Mains 2021. Tested for all attempts.
-- `mains_2022` --> for JEE Mains 2022. Validated against June attempt provisional key.
+- `mains_2022` --> for JEE Mains 2022. Tested for June attempt.
 
 ### Implementing New Scrapers
 
