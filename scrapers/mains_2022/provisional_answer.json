@@ -1,0 +1,4 @@
+{
+    "mcq": "Objective\\s+(?P<qid>\\d+)\\s+(?P<ans>\\w)",
+    "numerical": "Numerical\\s+(?P<qid>\\d+)\\s+(?P<ans>-?[\\d.]+)"
+}

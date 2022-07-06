@@ -1,0 +1,8 @@
+{
+    "application_no": "App No\\s+(\\d+)",
+    "name": "Name\\s+([\\w ]+)",
+    "roll": "Roll No\\s+([\\w\\d]+)",
+    "test_date": "Exam Date\\s+([\\w\\d ]+)",
+    "mcq" : "Question ID:(?P<qid>\\d+)\\s+Topic Name:(?P<topic>[\\w-]+ A)\\s+[\\s\\w\\d:/?&=,.]+?Answer Given By Candidate:(?P<chosen>[\\w ]+)",
+    "numerical" : "Question ID:(?P<qid>\\d+)\\s+Topic Name:(?P<topic>[\\w-]+ B)\\s+[\\s\\w\\d:/?&=,.]+?Answer Given By Candidate:(?P<given>[\\w ]+)"
+}

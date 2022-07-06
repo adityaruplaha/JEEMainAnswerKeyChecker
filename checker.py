@@ -29,7 +29,7 @@ class Checker:
             if self.answers[id] is None:
                 dropped_mcq += 1
                 continue
-            if (question["chosen"] is not None):
+            if (question["chosen"] is not None) and (isinstance(question["chosen"], int)):
                 if question["option_" + str(question["chosen"])] == self.answers[id]:
                     correct_mcq += 1
                 else:
@@ -37,6 +37,18 @@ class Checker:
                         {
                             "question_id": id,
                             "candidate_answer": question["option_" + str(question["chosen"])],
+                            "correct_answer": self.answers[id]
+                        }
+                    )
+                    incorrect_mcq += 1
+            if (question["chosen"] is not None) and (isinstance(question["chosen"], str)):
+                if question["chosen"] == self.answers[id]:
+                    correct_mcq += 1
+                else:
+                    self.data["mismatched_questions"].append(
+                        {
+                            "question_id": id,
+                            "candidate_answer": question["chosen"],
                             "correct_answer": self.answers[id]
                         }
                     )

@@ -1,6 +1,6 @@
 # JEEMainAnswerKeyChecker
 
-An automated script to scrape and check JEE Main 2021 answer keys I made over the weekend. Runs fully offline.
+An automated script to scrape and check JEE Main answer keys I made over the weekend. Runs fully offline.
 This is still very crude and can be improved and extended upon in many ways. Contributions welcome. :)
 
 This software is not affiliated to or endorsed by [NTA](https://www.nta.ac.in).
@@ -22,7 +22,7 @@ I might add a CLI later.
 
 ```python
 # Scraper
-s = Scraper(scraper='mains_2021') # choose what you need
+s = Scraper(scraper='mains_2022') # choose what you need
 file = open(...) # or any file-like object
 s.parse(file)
 out_json_file = open(..., 'w') # or any file-like object
@@ -50,17 +50,23 @@ So, writing scrapers takes a while and they can break easily if NTA decides to c
 If you find that this broke in the future, please open an issue describing what went wrong, the intended output, and attach files so that I can write a new scraper.
 
 Currently the following scrapers are supported:
-- `mains_2021` --> for JEE Mains 2021. Tested for all attempts. Should work for all Mains exams even in the future.
+- `mains_2021` --> for JEE Mains 2021. Tested for all attempts.
+- `mains_2022` --> for JEE Mains 2022. Validated against June attempt provisional key.
 
 ### Implementing New Scrapers
 
 If you are interested in writing a scraper, you need to keep their basic structure in mind.
 
 - Folder name should be same as scraper name.
-- `null_list.json` is a list containing all strings that correspond to "no answer"/"not attempted"/"question dropped".
+- `metadata.json` contains the following following shared metadata:
+    - `name` is the name of the scraper, currently unused.
+    - `method` can one of the following:
+        - `qid_oid`: Question ID and Option IDs are used by the scraper. These IDs are numeric. Used by `mains_2021`.
+        - `qid_opt`: QUestion ID and Option Numbers (ABCD) are used by the scraper. Used by `mains_2022`.
+    - `null_list` is a list containing all strings that correspond to "no answer"/"not attempted"/"question dropped".
 - `final_answer.json` is used by `FinalKeyScraper`. It contains regexes for `mcq`,`numerical` with named capture groups:
     - `qid`: question ID
-    - `ans`: answer
+    - `ans`: answer (correct Option ID for `method` = `qid_oid`, correct Option Numbers for `method` = `qid_opt`)
 - `provisional_answer.json` is used by `ProvisionalKeyScraper`. It behaves the same way as `final_answer.json`.
 - `response.json` is used by `ResponseScraper`.
 
@@ -69,11 +75,12 @@ If you are interested in writing a scraper, you need to keep their basic structu
 
     It contains regexes for `mcq` with named capture groups:
     - `qid`: question ID
-    - `o1id`: option 1 ID
-    - `o2id`: option 2 ID
-    - `o3id`: option 3 ID
-    - `o4id`: option 4 ID
-    - `chosen`: chosen (1,2,3, or 4)
+    - `chosen`: chosen option (from {A, B, C, D} for `method` = `qid_opt` or {1, 2, 3, 4} for `method` = `qid_oid`)
+    - For `method` = `qid_oid`, the following additional keys are needed:  
+        - `o1id`: option 1 ID
+        - `o2id`: option 2 ID
+        - `o3id`: option 3 ID
+        - `o4id`: option 4 ID
 
     It contains regexes for `numerical` with named capture groups:
     - `qid`: question ID

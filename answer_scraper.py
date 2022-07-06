@@ -19,11 +19,20 @@ class KeyScraper(BaseScraper):
         regs = self.get_regexes(kind=kind)
         mcqs = regs['mcq'].finditer(data)
 
-        for match in mcqs:
-            self.data["questions"]["mcq"].append({
-                "question_id" : int(match.group('qid')),
-                "answer" : self.sane_int(match.group('ans'))
-            })
+        if self.metadata["method"] == "qid_oid":
+            for match in mcqs:
+                self.data["questions"]["mcq"].append({
+                    "question_id" : int(match.group('qid')),
+                    "answer" : self.sane_int(match.group('ans'))
+                })
+        elif self.metadata["method"] == "qid_opt":
+            for match in mcqs:
+                self.data["questions"]["mcq"].append({
+                    "question_id" : int(match.group('qid')),
+                    "answer" : self.sane_str(match.group('ans'))
+                })
+        else:
+            pass # WTF
 
         nums = regs['numerical'].finditer(data)
 
